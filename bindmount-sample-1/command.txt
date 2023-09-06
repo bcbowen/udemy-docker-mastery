@@ -1,0 +1,6 @@
+
+docker run -v $(pwd):/site bretfisher/jekyll new .
+
+docker run -p 80:4000 -v $(pwd):/site bretfisher/jekyll-serve
+
+# this doesn't work
