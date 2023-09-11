@@ -15,7 +15,7 @@ services:
   postgres:
     image: postgres:14
     environment:
-      - POSTGRES_PASSWORD=mypasswd
+      - POSTGRES_PASSWORD=assman
 
 volumes:
   drupal-modules:
