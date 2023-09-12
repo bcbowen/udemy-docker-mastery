@@ -3,9 +3,9 @@
 docker network create -d overlay backend
 docker network create -d overlay frontend
 
-docker service create --name vote -p 80:80  --network frontend --replica 1 bretfisher/examplevotingapp_vote
+docker service create --name vote -p 80:80  --network frontend bretfisher/examplevotingapp_vote
 
-docker service create --name redis --network frontend --replica 1 redis:3.2
+docker service create --name redis --network frontend  redis:3.2
 
 docker service create --name worker --network frontend --network backend backend bretfisher/examplevotingapp_worker
 
