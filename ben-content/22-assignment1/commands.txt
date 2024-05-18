@@ -1,0 +1,20 @@
+1.  run nginx, mysql, and httpd server
+2.  run wil -d and --name
+3.  nginx should listen on 80:80, httpd on 8080:80, mysql on 3306:3306
+4.  for mysql use --env (-e): MYSQL_RANDOM_ROOT_PASSWORD=yes
+5.  use container logs on mysql to find random pwd created @ startup
+6.  cleanup with docker container stop and docker container rm (both accept multiple names or ids)
+7.  use docker container ls to check everything before and after cleanup
+
+1 - 4: 
+docker container run -d --name webhost -p 80:80 nginx
+docker container run -d --name db -p 3306:3306 --env  MYSQL_RANDOM_ROOT_PASSWORD=yes mysql 
+docker container run -d --name http -p 8081:80 httpd  
+
+5: 
+docker container logs db
+pwd: HG0bDKSixYvHA1kLsxskkVOp9RkU8x2R
+
+6: 
+docker container stop webhost db http
+docker container rm webhost db http
