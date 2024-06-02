@@ -1,0 +1,7 @@
+docker network create assignment3
+docker container run -d --net assignment3 --net-alias search elasticsearch:2
+docker container run -d --net assignment3 --net-alias search elasticsearch:2
+
+docker container run --rm assignment3 alpine nslookup search
+
+docker container run --rm --net centos curl -s search:9200
